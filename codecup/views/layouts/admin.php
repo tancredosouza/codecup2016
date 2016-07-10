@@ -68,7 +68,7 @@ $this->title = 'ensinaê';
             $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];        
         } else {
          
-            $menuItems[] = ['label' => 'Visão Geral', 'url' => ['/site/visaogeral']];
+            $menuItems[] = ['label' => 'Visão Geral', 'url' => ['/user/index']];
             
             $menuItems[] = [
                         'label' => "Aulas",

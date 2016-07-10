@@ -11,30 +11,12 @@ $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'nome',
-            'email:email',
-            'senha',
-            'cidade',
-            // 'estado',
-            // 'universidade',
-            // 'foto',
-            // 'data_cadastro',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    <div class="col-md-12">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" name="validate-text" id="validate-text" placeholder="O que você quer aprender hoje? " required>
+                <span class="input-group-addon danger"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+        </div>
+    </div>
 </div>

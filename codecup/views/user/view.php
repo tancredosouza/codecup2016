@@ -80,6 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div class="tab-pane fade in" id="tab2">
                 <?php if (count($model->rAulas) > 0) { ?>
+                    s
                 <?php } else { ?>
                     <center>Você não possui nenhuma aula cadastrada</center>
                 <?php } ?>
