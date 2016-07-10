@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\HistoricoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Historicos';
+$this->title = 'Histórico';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="historico-index">
@@ -15,22 +15,30 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Historico', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
+        'rowOptions' => function ($model, $index, $widget, $grid){
+            
+            if ($model->type == 0){
+                 return ['style'=>'color:red;'];
+            } else {
+                return ['style'=>'color:green;'];
+            }
+            
+            return [];
+         
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_user',
             'qnt_coins',
-            'type',
-            'data_cadastro',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            ['attribute'=>'type','value'=>function($model){
+                 return $model->type == 1?'ENTRADA':'SAÍDA';
+             }],
+             ['attribute'=>'data_cadastro','value'=>function($model){
+                 return date('d/m/Y H:i:s', strtotime($model->data_cadastro));
+             }],
         ],
     ]); ?>
 </div>
