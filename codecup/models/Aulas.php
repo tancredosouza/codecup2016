@@ -33,8 +33,8 @@ class Aulas extends \yii\db\ActiveRecord
         return [
             [['id_user', 'titulo', 'tags', 'disponibilidade'], 'required'],
             [['id_user', 'disponibilidade'], 'integer'],
-            [['descricao', 'tags'], 'string'],
-            [['data_cadastro'], 'safe'],
+            [['descricao'], 'string'],
+            [['data_cadastro', 'tags'], 'safe'],
             [['titulo'], 'string', 'max' => 150],
         ];
     }

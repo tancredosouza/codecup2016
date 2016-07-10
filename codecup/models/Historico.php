@@ -42,10 +42,10 @@ class Historico extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
-            'qnt_coins' => 'Qnt Coins',
-            'type' => 'Type',
-            'data_cadastro' => 'Data Cadastro',
+            'id_user' => 'Usuário',
+            'qnt_coins' => 'Quantidade de Moedas',
+            'type' => 'Tipo de transação',
+            'data_cadastro' => 'Data da transação',
         ];
     }
 }

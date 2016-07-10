@@ -5,11 +5,12 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%cidade}}".
+ * This is the model class for table "{{%tb_cidades}}".
  *
- * @property integer $id
+ * @property string $id
+ * @property string $estado
+ * @property string $uf
  * @property string $nome
- * @property integer $estado
  */
 class Cidade extends \yii\db\ActiveRecord
 {
@@ -18,7 +19,7 @@ class Cidade extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%cidade}}';
+        return '{{%tb_cidades}}';
     }
 
     /**
@@ -28,7 +29,8 @@ class Cidade extends \yii\db\ActiveRecord
     {
         return [
             [['estado'], 'integer'],
-            [['nome'], 'string', 'max' => 120],
+            [['uf'], 'string', 'max' => 4],
+            [['nome'], 'string', 'max' => 50],
         ];
     }
 
@@ -39,8 +41,9 @@ class Cidade extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nome' => 'Nome',
             'estado' => 'Estado',
+            'uf' => 'Uf',
+            'nome' => 'Nome',
         ];
     }
 }

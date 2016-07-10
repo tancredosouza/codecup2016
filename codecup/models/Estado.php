@@ -5,12 +5,11 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%estado}}".
+ * This is the model class for table "{{%tb_estados}}".
  *
- * @property integer $id
- * @property string $nome
+ * @property string $id
  * @property string $uf
- * @property integer $pais
+ * @property string $nome
  */
 class Estado extends \yii\db\ActiveRecord
 {
@@ -19,7 +18,7 @@ class Estado extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%estado}}';
+        return '{{%tb_estados}}';
     }
 
     /**
@@ -28,9 +27,8 @@ class Estado extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['pais'], 'integer'],
-            [['nome'], 'string', 'max' => 75],
-            [['uf'], 'string', 'max' => 5],
+            [['uf'], 'string', 'max' => 10],
+            [['nome'], 'string', 'max' => 20],
         ];
     }
 
@@ -41,9 +39,8 @@ class Estado extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nome' => 'Nome',
             'uf' => 'Uf',
-            'pais' => 'Pais',
+            'nome' => 'Nome',
         ];
     }
 }
