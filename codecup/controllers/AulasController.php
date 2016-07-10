@@ -35,6 +35,8 @@ class AulasController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = "admin";
+
         $searchModel = new AulasSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -51,6 +53,9 @@ class AulasController extends Controller
      */
     public function actionView($id)
     {
+
+        $this->layout = "admin";
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -63,15 +68,25 @@ class AulasController extends Controller
      */
     public function actionCreate()
     {
+
+        $this->layout = "admin";
+
         $model = new Aulas();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        $date = new \DateTime();
+        //$model->data_cadastro = $date->getTimestamp();
+        
+        if($model->load(Yii::$app->request->post())) {
+            $model->tags = implode(",", $model->tags);
+            
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -82,15 +97,23 @@ class AulasController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->layout = "admin";
+
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        $model->tags = explode(",", $model->tags);
+
+        if($model->load(Yii::$app->request->post())) {
+            $model->tags = implode(",", $model->tags);
+            
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**

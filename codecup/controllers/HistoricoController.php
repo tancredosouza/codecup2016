@@ -35,6 +35,8 @@ class HistoricoController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = "admin";
+
         $searchModel = new HistoricoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

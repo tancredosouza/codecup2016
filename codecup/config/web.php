@@ -7,6 +7,7 @@ $config = [
     'name' => 'ensinaê',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'pt_BR',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -45,6 +46,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
+                '/cadastre-se' => 'site/signup',
             ],
         ],
     ],

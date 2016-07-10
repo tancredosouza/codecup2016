@@ -17,7 +17,13 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "yiisoft/yii2-imagine": "~2.0.0",
+        "kartik-v/yii2-widgets": "dev-master",
+        "kartik-v/yii2-datecontrol": "dev-master",
+        "bupy7/yii2-widget-cropbox": "*",
+        "xj/yii2-bootbox-widget": "*",
+        "kartik-v/yii2-widget-switchinput": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
