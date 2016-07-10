@@ -4,19 +4,20 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name' => 'ensinaê',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '-OSJ1YekTvOdLN0WxmiXxaV4-GT_amou',
+            'cookieValidationKey' => 'bRSzmV7BdHgPC2AENc5Gg6DWdXs6Bik9',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -38,14 +39,14 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'site/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
